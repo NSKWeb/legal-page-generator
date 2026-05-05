@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import { generateDocument } from './generator'
 import { TEMPLATES } from './templates'
 
@@ -934,6 +935,7 @@ export default function App() {
           Fiat Lex
         </span>
       </footer>
+      <SpeedInsights />
     </div>
   )
 }
