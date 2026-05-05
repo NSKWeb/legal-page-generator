@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block build artifacts
+Disallow: /src/
+Disallow: /.bud/
+
+Sitemap: https://legal-page-generator.vercel.app/sitemap.xml
