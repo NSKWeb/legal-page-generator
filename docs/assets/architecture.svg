@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 360" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" role="img" aria-label="LexCraft architecture and data flow">
+  <defs>
+    <linearGradient id="archBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7fafd"/>
+      <stop offset="1" stop-color="#eef5fc"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1e78c2"/>
+    </marker>
+    <filter id="archShadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#1e78c2" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="860" height="360" rx="18" fill="url(#archBg)" stroke="#b8dcf8" stroke-width="2"/>
+
+  <!-- Title -->
+  <text x="430" y="34" font-size="16" font-weight="800" fill="#0f4e8a" text-anchor="middle">Client-side pipeline — no backend, no API</text>
+
+  <!-- Step 1: templates.js -->
+  <g filter="url(#archShadow)">
+    <rect x="30" y="80" width="170" height="100" rx="12" fill="#fff" stroke="#1e78c2" stroke-width="2"/>
+    <rect x="30" y="80" width="170" height="26" rx="12" fill="#1e78c2"/>
+    <text x="115" y="98" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">templates.js</text>
+    <text x="115" y="128" font-size="10.5" fill="#3a5272" text-anchor="middle">Template schema</text>
+    <text x="115" y="144" font-size="10.5" fill="#3a5272" text-anchor="middle">id · name · icon</text>
+    <text x="115" y="160" font-size="10.5" fill="#3a5272" text-anchor="middle">fields[]</text>
+  </g>
+  <line x1="200" y1="130" x2="248" y2="130" stroke="#1e78c2" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: App.jsx form -->
+  <g filter="url(#archShadow)">
+    <rect x="250" y="80" width="170" height="100" rx="12" fill="#fff" stroke="#1e78c2" stroke-width="2"/>
+    <rect x="250" y="80" width="170" height="26" rx="12" fill="#4aa3e0"/>
+    <text x="335" y="98" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">App.jsx — Form</text>
+    <text x="335" y="128" font-size="10.5" fill="#3a5272" text-anchor="middle">Renders dynamic</text>
+    <text x="335" y="144" font-size="10.5" fill="#3a5272" text-anchor="middle">fields from schema</text>
+    <text x="335" y="160" font-size="10.5" fill="#3a5272" text-anchor="middle">collects values</text>
+  </g>
+  <line x1="420" y1="130" x2="468" y2="130" stroke="#1e78c2" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: generator.js -->
+  <g filter="url(#archShadow)">
+    <rect x="470" y="80" width="170" height="100" rx="12" fill="#fff" stroke="#1e78c2" stroke-width="2"/>
+    <rect x="470" y="80" width="170" height="26" rx="12" fill="#1e78c2"/>
+    <text x="555" y="98" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">generator.js</text>
+    <text x="555" y="128" font-size="10.5" fill="#3a5272" text-anchor="middle">{{placeholder}}</text>
+    <text x="555" y="144" font-size="10.5" fill="#3a5272" text-anchor="middle">engine fills the</text>
+    <text x="555" y="160" font-size="10.5" fill="#3a5272" text-anchor="middle">template HTML</text>
+  </g>
+  <line x1="640" y1="130" x2="688" y2="130" stroke="#1e78c2" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 4: Output -->
+  <g filter="url(#archShadow)">
+    <rect x="690" y="80" width="150" height="100" rx="12" fill="#fff" stroke="#e85d2f" stroke-width="2"/>
+    <rect x="690" y="80" width="150" height="26" rx="12" fill="#e85d2f"/>
+    <text x="765" y="98" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">HTML Output</text>
+    <text x="765" y="128" font-size="10.5" fill="#3a5272" text-anchor="middle">Live preview</text>
+    <text x="765" y="146" font-size="10.5" fill="#3a5272" text-anchor="middle">copy · print · download</text>
+  </g>
+
+  <!-- Browser boundary label -->
+  <rect x="14" y="62" width="832" height="284" rx="16" fill="none" stroke="#b8dcf8" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="28" y="78" font-size="10" font-weight="700" fill="#7dc0ef">🌐 your browser</text>
+
+  <!-- Bottom: legend / no backend -->
+  <g>
+    <rect x="160" y="230" width="540" height="80" rx="14" fill="#0f4e8a"/>
+    <text x="430" y="258" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">🔒 Zero data leaves the browser</text>
+    <text x="430" y="280" font-size="11" fill="#b8dcf8" text-anchor="middle">No server · No database · No account · No tracking</text>
+    <text x="430" y="298" font-size="10.5" fill="#7dc0ef" text-anchor="middle">All rendering &amp; generation happen locally in React</text>
+  </g>
+</svg>
