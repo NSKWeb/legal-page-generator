@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 320" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" role="img" aria-label="LexCraft legal page templates grid">
+  <defs>
+    <linearGradient id="tgBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7fafd"/>
+      <stop offset="1" stop-color="#eef5fc"/>
+    </linearGradient>
+    <filter id="tgShadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#1e78c2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="820" height="320" rx="18" fill="url(#tgBg)" stroke="#b8dcf8" stroke-width="2"/>
+
+  <!-- Row 1 -->
+  <!-- 01 Privacy Policy -->
+  <g filter="url(#tgShadow)">
+    <rect x="24" y="28" width="180" height="120" rx="14" fill="#fff" stroke="#1e78c2" stroke-width="2"/>
+    <circle cx="64" cy="68" r="22" fill="#1e78c2"/>
+    <rect x="55" y="58" width="18" height="14" rx="3" fill="none" stroke="#fff" stroke-width="2.5"/>
+    <path d="M59 58 v-4 a4 4 0 0 1 8 0 v4" fill="none" stroke="#fff" stroke-width="2.5"/>
+    <text x="100" y="66" font-size="13" font-weight="800" fill="#7dc0ef">01</text>
+    <text x="100" y="84" font-size="14" font-weight="700" fill="#0f4e8a">Privacy Policy</text>
+    <text x="34" y="112" font-size="9.5" fill="#3a5272">Data, cookies &amp; rights</text>
+  </g>
+  <!-- 02 Terms of Service -->
+  <g filter="url(#tgShadow)">
+    <rect x="220" y="28" width="180" height="120" rx="14" fill="#fff" stroke="#1e78c2" stroke-width="2"/>
+    <circle cx="260" cy="68" r="22" fill="#4aa3e0"/>
+    <rect x="251" y="56" width="18" height="22" rx="2" fill="#fff"/>
+    <line x1="255" y1="62" x2="265" y2="62" stroke="#4aa3e0" stroke-width="2"/>
+    <line x1="255" y1="67" x2="265" y2="67" stroke="#4aa3e0" stroke-width="2"/>
+    <line x1="255" y1="72" x2="262" y2="72" stroke="#4aa3e0" stroke-width="2"/>
+    <text x="296" y="66" font-size="13" font-weight="800" fill="#7dc0ef">02</text>
+    <text x="296" y="84" font-size="14" font-weight="700" fill="#0f4e8a">Terms of Service</text>
+    <text x="230" y="112" font-size="9.5" fill="#3a5272">Rules, IP &amp; liability</text>
+  </g>
+  <!-- 03 Cookie Policy -->
+  <g filter="url(#tgShadow)">
+    <rect x="416" y="28" width="180" height="120" rx="14" fill="#fff" stroke="#1e78c2" stroke-width="2"/>
+    <circle cx="456" cy="68" r="22" fill="#1e78c2"/>
+    <circle cx="456" cy="68" r="15" fill="#fff"/>
+    <circle cx="450" cy="63" r="3" fill="#1e78c2"/>
+    <circle cx="462" cy="64" r="2.5" fill="#1e78c2"/>
+    <circle cx="459" cy="73" r="2.5" fill="#1e78c2"/>
+    <text x="492" y="66" font-size="13" font-weight="800" fill="#7dc0ef">03</text>
+    <text x="492" y="84" font-size="14" font-weight="700" fill="#0f4e8a">Cookie Policy</text>
+    <text x="426" y="112" font-size="9.5" fill="#3a5272">Consent &amp; management</text>
+  </g>
+  <!-- 04 Disclaimer -->
+  <g filter="url(#tgShadow)">
+    <rect x="612" y="28" width="180" height="120" rx="14" fill="#fff" stroke="#1e78c2" stroke-width="2"/>
+    <circle cx="652" cy="68" r="22" fill="#4aa3e0"/>
+    <path d="M652 54 l14 26 h-28 z" fill="#fff"/>
+    <rect x="651" y="64" width="2.5" height="8" fill="#4aa3e0"/>
+    <circle cx="652" cy="76" r="1.6" fill="#4aa3e0"/>
+    <text x="688" y="66" font-size="13" font-weight="800" fill="#7dc0ef">04</text>
+    <text x="688" y="84" font-size="14" font-weight="700" fill="#0f4e8a">Disclaimer</text>
+    <text x="622" y="112" font-size="9.5" fill="#3a5272">Liability &amp; accuracy</text>
+  </g>
+
+  <!-- Row 2 -->
+  <!-- 05 Refund Policy -->
+  <g filter="url(#tgShadow)">
+    <rect x="24" y="168" width="180" height="120" rx="14" fill="#fff" stroke="#1e78c2" stroke-width="2"/>
+    <circle cx="64" cy="208" r="22" fill="#1e78c2"/>
+    <rect x="52" y="206" width="24" height="16" rx="2" fill="#fff"/>
+    <rect x="52" y="202" width="24" height="5" rx="2" fill="#fff"/>
+    <line x1="58" y1="213" x2="70" y2="213" stroke="#1e78c2" stroke-width="2"/>
+    <text x="100" y="206" font-size="13" font-weight="800" fill="#7dc0ef">05</text>
+    <text x="100" y="224" font-size="14" font-weight="700" fill="#0f4e8a">Refund Policy</text>
+    <text x="34" y="252" font-size="9.5" fill="#3a5272">Eligibility &amp; process</text>
+  </g>
+  <!-- 06 EULA -->
+  <g filter="url(#tgShadow)">
+    <rect x="220" y="168" width="180" height="120" rx="14" fill="#fff" stroke="#1e78c2" stroke-width="2"/>
+    <circle cx="260" cy="208" r="22" fill="#4aa3e0"/>
+    <circle cx="260" cy="204" r="9" fill="#fff"/>
+    <circle cx="260" cy="204" r="4" fill="#4aa3e0"/>
+    <path d="M250 222 a10 8 0 0 1 20 0 z" fill="#fff"/>
+    <text x="296" y="206" font-size="13" font-weight="800" fill="#7dc0ef">06</text>
+    <text x="296" y="224" font-size="14" font-weight="700" fill="#0f4e8a">EULA</text>
+    <text x="230" y="252" font-size="9.5" fill="#3a5272">License &amp; warranty</text>
+  </g>
+  <!-- 07 About Us -->
+  <g filter="url(#tgShadow)">
+    <rect x="416" y="168" width="180" height="120" rx="14" fill="#fff" stroke="#1e78c2" stroke-width="2"/>
+    <circle cx="456" cy="208" r="22" fill="#1e78c2"/>
+    <rect x="445" y="196" width="22" height="14" rx="2" fill="#fff"/>
+    <rect x="445" y="214" width="22" height="16" rx="2" fill="#fff"/>
+    <line x1="449" y1="201" x2="463" y2="201" stroke="#1e78c2" stroke-width="1.6"/>
+    <line x1="449" y1="206" x2="463" y2="206" stroke="#1e78c2" stroke-width="1.6"/>
+    <text x="492" y="206" font-size="13" font-weight="800" fill="#7dc0ef">07</text>
+    <text x="492" y="224" font-size="14" font-weight="700" fill="#0f4e8a">About Us</text>
+    <text x="426" y="252" font-size="9.5" fill="#3a5272">Company story</text>
+  </g>
+  <!-- 08 Contact Us -->
+  <g filter="url(#tgShadow)">
+    <rect x="612" y="168" width="180" height="120" rx="14" fill="#fff" stroke="#1e78c2" stroke-width="2"/>
+    <circle cx="652" cy="208" r="22" fill="#4aa3e0"/>
+    <rect x="641" y="200" width="22" height="15" rx="2" fill="none" stroke="#fff" stroke-width="2.5"/>
+    <path d="M641 202 l11 8 l11 -8" fill="none" stroke="#fff" stroke-width="2.5"/>
+    <text x="688" y="206" font-size="13" font-weight="800" fill="#7dc0ef">08</text>
+    <text x="688" y="224" font-size="14" font-weight="700" fill="#0f4e8a">Contact Us</text>
+    <text x="622" y="252" font-size="9.5" fill="#3a5272">Support channels</text>
+  </g>
+</svg>

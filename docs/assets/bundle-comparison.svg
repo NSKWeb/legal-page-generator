@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" role="img" aria-label="Bundle size before vs after optimization">
+  <defs>
+    <linearGradient id="bcBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7fafd"/>
+      <stop offset="1" stop-color="#eef5fc"/>
+    </linearGradient>
+    <linearGradient id="beforeBar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e85d2f"/>
+      <stop offset="1" stop-color="#c4451f"/>
+    </linearGradient>
+    <linearGradient id="afterBar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4aa3e0"/>
+      <stop offset="1" stop-color="#1e78c2"/>
+    </linearGradient>
+    <filter id="bcShadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#1e78c2" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="820" height="340" rx="18" fill="url(#bcBg)" stroke="#b8dcf8" stroke-width="2"/>
+
+  <text x="410" y="36" font-size="16" font-weight="800" fill="#0f4e8a" text-anchor="middle">Initial JS Payload — Before vs After</text>
+
+  <!-- Axis baseline -->
+  <line x1="260" y1="270" x2="780" y2="270" stroke="#3a5272" stroke-width="2"/>
+  <!-- gridline ticks -->
+  <g stroke="#b8dcf8" stroke-width="1">
+    <line x1="260" y1="120" x2="780" y2="120" stroke-dasharray="3 4"/>
+    <line x1="260" y1="170" x2="780" y2="170" stroke-dasharray="3 4"/>
+    <line x1="260" y1="220" x2="780" y2="220" stroke-dasharray="3 4"/>
+  </g>
+  <g font-size="9" fill="#7dc0ef" text-anchor="end">
+    <text x="254" y="124">250 kB</text>
+    <text x="254" y="174">200 kB</text>
+    <text x="254" y="224">100 kB</text>
+    <text x="254" y="274">0</text>
+  </g>
+
+  <!-- BEFORE bar: 248.57 kB => scale: 250kB=150px (from y120 to y270) so 248.57 => 149px height -->
+  <!-- bar height ~149, top y = 270-149 = 121 -->
+  <g filter="url(#bcShadow)">
+    <rect x="320" y="121" width="90" height="149" rx="6" fill="url(#beforeBar)"/>
+  </g>
+  <text x="365" y="113" font-size="12" font-weight="800" fill="#c4451f" text-anchor="middle">248.57 kB</text>
+  <text x="365" y="292" font-size="12" font-weight="700" fill="#3a5272" text-anchor="middle">BEFORE</text>
+  <text x="365" y="308" font-size="10" fill="#7dc0ef" text-anchor="middle">single chunk</text>
+
+  <!-- AFTER entry bar: 2.38 kB => ~1.4px (tiny) draw min visible -->
+  <g filter="url(#bcShadow)">
+    <rect x="480" y="266" width="90" height="4" rx="2" fill="url(#afterBar)"/>
+  </g>
+  <text x="525" y="256" font-size="12" font-weight="800" fill="#1e78c2" text-anchor="middle">2.38 kB</text>
+  <text x="525" y="292" font-size="12" font-weight="700" fill="#3a5272" text-anchor="middle">AFTER (entry)</text>
+  <text x="525" y="308" font-size="10" fill="#7dc0ef" text-anchor="middle">lazy + split</text>
+
+  <!-- Reduction callout -->
+  <g>
+    <rect x="600" y="140" width="180" height="100" rx="14" fill="#0f4e8a"/>
+    <text x="690" y="172" font-size="28" font-weight="800" fill="#b8dcf8" text-anchor="middle">~97%</text>
+    <text x="690" y="194" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">reduction in</text>
+    <text x="690" y="210" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">initial JS payload</text>
+    <text x="690" y="228" font-size="9.5" fill="#7dc0ef" text-anchor="middle">248.57 kB → 2.38 kB</text>
+  </g>
+
+  <!-- Legend -->
+  <g font-size="10" fill="#3a5272">
+    <rect x="40" y="120" width="14" height="14" rx="3" fill="url(#beforeBar)"/>
+    <text x="60" y="131">Before</text>
+    <rect x="40" y="142" width="14" height="14" rx="3" fill="url(#afterBar)"/>
+    <text x="60" y="153">After (entry chunk)</text>
+  </g>
+</svg>
