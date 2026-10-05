@@ -57,7 +57,7 @@ Everything happens **in your browser** — there is no server, no database, and 
 | 🔒 | **100% private** | Form data stays in your browser — nothing is uploaded anywhere |
 | ⚡ | **Instant output** | Live HTML preview the moment you type |
 | 🧩 | **8 legal pages** | All the essential documents a modern site needs |
-| 🪶 | **Zero deps for users** | Just one lightweight static bundle |
+| 🪶 | **Zero deps for users** | Prerendered static HTML — no runtime backend |
 | 🎨 | **Clean HTML** | Semantic, copy-paste-ready markup — no bloat |
 | 💸 | **Free forever** | No sign-up, no paywall, no watermarks |
 
@@ -86,7 +86,7 @@ Eight ready-to-go document types — each with its own smart form and rendering 
 
 ## ⚙️ How It Works
 
-LexCraft is a tiny, purely client-side pipeline. No backend, no API calls — just React, a template engine, and you.
+LexCraft is a tiny, purely client-side pipeline. No backend, no API calls — just React, a template engine, and you. At build time the app is prerendered to static HTML, so search engines see the full page even without JavaScript.
 
 <p align="center">
   <img src="docs/assets/architecture.svg" alt="LexCraft architecture and data flow diagram" width="860" />
@@ -99,6 +99,8 @@ LexCraft is a tiny, purely client-side pipeline. No backend, no API calls — ju
 **3. Generation** — `generator.js` takes the filled fields and substitutes them into the template's HTML using a `{{placeholder}}` engine, producing a complete legal document.
 
 **4. Output** — The rendered HTML is shown in a live preview panel. You can **copy**, **print**, or **download** it and paste it straight into your site.
+
+**5. Prerendered for search** — At build time the app is rendered to static HTML (`src/entry-server.jsx` → `scripts/prerender.mjs`), so crawlers receive the full page. The browser then hydrates that markup for interactivity.
 
 ---
 
@@ -118,7 +120,7 @@ npm install
 npm run dev
 #    → http://localhost:5173
 
-# 4. Create a production build
+# 4. Create a production build (client bundle + prerendered HTML)
 npm run build
 
 # 5. Preview the production build locally
@@ -133,7 +135,8 @@ npm run lint
 | Script | Description |
 |--------|-------------|
 | `npm run dev` | Start the Vite dev server with HMR |
-| `npm run build` | Production build into `dist/` |
+| `npm run build` | Production build: client bundle + SSR prerender into `dist/` |
+| `npm run build:client` | Client-only build (no prerender) |
 | `npm run preview` | Locally preview the production build |
 | `npm run lint` | Run ESLint over the project |
 
@@ -144,18 +147,23 @@ npm run lint
 ```
 legal-page-generator/
 ├── index.html              # App shell + SEO / OpenGraph / structured-data meta
-├── vite.config.js          # Vite config (React + Tailwind v4, chunks, terser)
+├── vite.config.js          # Vite config (React + Tailwind v4, SSR build, chunks, terser)
 ├── eslint.config.js        # Flat ESLint config (+ React Compiler rule)
 ├── package.json            # Scripts, deps & sideEffects:false
 ├── vercel.json             # Vercel deployment config
+├── scripts/
+│   └── prerender.mjs       # Injects prerendered markup into dist/index.html
 ├── public/                 # Static assets served as-is
 │   ├── favicon.svg
 │   ├── icons.svg
+│   ├── og-image.png        # 1200×630 social preview card
 │   ├── robots.txt
 │   └── sitemap.xml
 ├── docs/assets/            # README infographics & diagrams (SVG)
+├── .agents/skills/seo-audit/  # Reusable SEO audit skill
 └── src/
-    ├── main.jsx            # Entry — lazy-loads <App/> with <Suspense>
+    ├── main.jsx            # Client entry — hydrates the prerendered markup
+    ├── entry-server.jsx    # Server entry — renderToString(<App/>) for SSG
     ├── App.jsx             # UI: template picker, form, live preview, export
     ├── App.css             # Component-scoped styles
     ├── index.css           # Global styles + Tailwind + Google Fonts
@@ -180,25 +188,28 @@ generator.js  ─►  fill(template, fields) → final HTML document string
 
 ## 📊 Performance & Bundle Sizes
 
-LexCraft is optimised for fast initial loads through code splitting, vendor chunk caching, and tree-shaking.
+LexCraft ships a small, cache-friendly bundle. React is split into a `react-vendor` chunk that
+stays cached across deploys, so only the app chunk is re-downloaded when content changes.
+Production JS is minified with terser (dropping `console`/`debugger`) and the CSS is a single
+tree-shaken file.
 
 <p align="center">
-  <img src="docs/assets/bundle-comparison.svg" alt="Bundle size before vs after optimization" width="820" />
+  <img src="docs/assets/bundle-comparison.svg" alt="Production JS split across a cached React vendor chunk and the app chunk" width="820" />
 </p>
 
-### Initial JS payload: 248.57 kB → 2.38 kB (~97% reduction)
+### Production output
 
-| Chunk | Before | After | gzip |
-|-------|-------:|------:|-----:|
-| Entry (`index-*.js`) | 248.57 kB | **2.38 kB** | 1.20 kB |
-| App (lazy `App-*.js`) | — | 58.23 kB | 15.55 kB |
-| React vendor (cached) | — | 188.91 kB | 59.89 kB |
-| CSS (`index-*.css`) | 21.04 kB | 21.04 kB | 5.39 kB |
+| Chunk | Raw | gzip |
+|-------|----:|-----:|
+| Entry (`index-*.js`) — app + generator | 59.18 kB | 16.00 kB |
+| React vendor (cached across deploys) | 189.52 kB | 60.04 kB |
+| CSS (`index-*.css`) | 21.49 kB | 5.51 kB |
+| `dist/index.html` (prerendered) | 13.03 kB | 3.37 kB |
 
 ### Optimisations applied
 
-- **Manual chunks** — React/ReactDOM split into a `react-vendor` chunk that caches across deploys.
-- **Lazy loading** — `App` is loaded on demand via `React.lazy()` + `<Suspense>`.
+- **Manual chunks** — React/ReactDOM split into a `react-vendor` chunk that caches across deploys; a content change re-downloads only the ~59 kB app chunk.
+- **Static prerendering** — the app is rendered to HTML at build time, so the first paint shows real content before any JavaScript runs.
 - **Console cleanup** — `console.log`/`debugger` stripped from production builds (terser).
 - **Performance hints** — `dns-prefetch` + `preconnect` for Google Fonts in `index.html`.
 - **React Compiler** — enabled with the `react-compiler` ESLint rule for React 19.
@@ -227,11 +238,11 @@ LexCraft is optimised for fast initial loads through code splitting, vendor chun
 
 LexCraft implements the reusable **[SEO_PROMPT toolkit](https://github.com/NSKWeb/SEO_PROMPT)** —
 a stack-agnostic prompt plus an OpenHands `seo-audit` skill for making any web-facing repo
-crawlable, indexable, and well-ranked. The app is a static bundle, so all SEO signals live in
-the `index.html` shell and `public/` assets that ship with every deploy.
+crawlable, indexable, and well-ranked. The app is prerendered to static HTML at build time,
+so every signal — `<head>` tags and page body — ships in the served HTML.
 
 <p align="center">
-  <img src="docs/assets/seo-foundation.svg" alt="LexCraft SEO foundation: technical foundation, on-page head tags, four JSON-LD schema types, and a client-rendering note" width="1240" />
+  <img src="docs/assets/seo-foundation.svg" alt="LexCraft SEO foundation: technical foundation, on-page head tags, four JSON-LD schema types, and the SSG rendering model" width="1240" />
 </p>
 
 **Technical foundation**
