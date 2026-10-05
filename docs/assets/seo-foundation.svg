@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 600" width="1240" height="600" role="img" aria-labelledby="t d">
   <title id="t">LexCraft SEO foundation</title>
-  <desc id="d">Four blocks describing LexCraft&#x27;s SEO: the technical foundation, on-page head tags, four JSON-LD schema types, and a note that the client-rendered body relies on the static shell.</desc>
+  <desc id="d">Four blocks describing LexCraft&#x27;s SEO: the technical foundation, on-page head tags, four JSON-LD schema types, and a note that the app is prerendered to static HTML at build time.</desc>
   <rect width="1240" height="600" fill="#f7fafd"/>
   <rect x="0" y="0" width="1240" height="8" fill="#1e78c2"/>
   <text x="48" y="72" font-family="'Courier Prime', 'SFMono-Regular', Consolas, monospace" font-size="15" fill="#e85d2f" font-weight="700" letter-spacing="3">SEO &amp; AEO FOUNDATION</text>
   <text x="46" y="122" font-family="'DM Serif Display', Georgia, serif" font-size="42" fill="#0a1628" font-weight="700">LexCraft — search visibility</text>
-  <text x="48" y="156" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="16.5" fill="#3a5272">Everything ships in the static index.html shell and public/ assets.</text>
+  <text x="48" y="156" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="16.5" fill="#3a5272">Head tags ship in index.html; the body is prerendered to static HTML.</text>
   <line x1="48" y1="180" x2="1192" y2="180" stroke="#b8dcf8" stroke-width="3"/>
   <rect x="53.0" y="215" width="560.0" height="168" fill="#0a1628"/>
   <rect x="48.0" y="210" width="560.0" height="168" fill="#ffffff" stroke="#0a1628" stroke-width="2.5"/>
@@ -54,14 +54,14 @@
   <rect x="637.0" y="407" width="560.0" height="168" fill="#0a1628"/>
   <rect x="632.0" y="402" width="560.0" height="168" fill="#ffffff" stroke="#0a1628" stroke-width="2.5"/>
   <rect x="632.0" y="402" width="8" height="168" fill="#7ba68a"/>
-  <text x="662.0" y="442" font-family="'Courier Prime', 'SFMono-Regular', Consolas, monospace" font-size="15" fill="#7ba68a" font-weight="700" letter-spacing="1.2">RENDERING NOTE</text>
+  <text x="662.0" y="442" font-family="'Courier Prime', 'SFMono-Regular', Consolas, monospace" font-size="15" fill="#7ba68a" font-weight="700" letter-spacing="1.2">RENDERING</text>
   <path d="M 662.0 470.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#7ba68a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="688.0" y="474" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">React SPA — body is client-rendered</text>
+  <text x="688.0" y="474" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">SSG: body prerendered at build time</text>
   <path d="M 662.0 494.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#7ba68a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="688.0" y="498" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">all SEO signals live in the static shell</text>
+  <text x="688.0" y="498" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">crawlers see the body without JavaScript</text>
   <path d="M 662.0 518.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#7ba68a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="688.0" y="522" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">crawlers read them reliably today</text>
+  <text x="688.0" y="522" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">hydrates on the client for interactivity</text>
   <path d="M 662.0 542.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#7ba68a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="688.0" y="546" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">scale up: add SSG/prerender for page bodies</text>
+  <text x="688.0" y="546" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">src/entry-server.jsx + scripts/prerender.mjs</text>
   <text x="620.0" y="576" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14.5" fill="#3a5272" text-anchor="middle">Audit table reports every item as pass / fail / missing with file:line evidence.</text>
 </svg>
