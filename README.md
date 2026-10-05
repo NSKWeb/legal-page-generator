@@ -237,7 +237,8 @@ the `index.html` shell and `public/` assets that ship with every deploy.
 **Technical foundation**
 
 - 🤖 **`robots.txt`** (`public/robots.txt`) — `Allow: /`, blocks build artifacts, and points to the sitemap
-- 🗺️ **`sitemap.xml`** (`public/sitemap.xml`) — canonical home URL with `lastmod`, `changefreq`, and `priority`
+- 🗺️ **`sitemap.xml`** (`public/sitemap.xml`) — canonical URL with `lastmod`, `changefreq`, and `priority`
+- ⚡ **Static prerendering (SSG)** — the app is server-rendered to real HTML at build time (`src/entry-server.jsx` + `scripts/prerender.mjs`) and hydrated on the client, so crawlers see the full page without executing JavaScript
 - 🔗 **Canonical tag** (`<link rel="canonical">`) pinned to the production domain
 - 🛡️ `<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">` for rich previews
 - ⚡ **Performance hints** — `dns-prefetch` + `preconnect` for Google Fonts, plus a code-split, tree-shaken bundle (see [Performance](#-performance--bundle-sizes))
@@ -246,7 +247,7 @@ the `index.html` shell and `public/` assets that ship with every deploy.
 **On-page SEO**
 
 - 📄 A keyword-front-loaded **`<title>`** and a click-worthy **meta description** in `index.html`
-- 📣 **Open Graph** tags (type, site name, title, description, URL, image + dimensions + alt, locale) for Facebook, LinkedIn, and WhatsApp
+- 📣 **Open Graph** tags (type, site name, title, description, URL, image + dimensions + alt, locale) for Facebook, LinkedIn, and WhatsApp — backed by a real 1200×630 `public/og-image.png`
 - 🐦 **Twitter / X card** (`summary_large_image`) with title, description, and image
 - ⭐ Favicon, `apple-touch-icon`, and `theme-color`
 - 🧩 **JSON-LD structured data** covering four schema types:
@@ -255,9 +256,9 @@ the `index.html` shell and `public/` assets that ship with every deploy.
   - `HowTo` — step-by-step featured snippets
   - `BreadcrumbList` — breadcrumb rich results
 
-> **Note on rendering:** LexCraft is a client-side React app. The SEO signals above are all in
-> the static `index.html`, which crawlers read reliably; if the app grows more indexable
-> content, add prerendering/SSG (e.g. `vite-plugin-ssg`) so page bodies are server-rendered too.
+> **Rendering:** LexCraft prerenders to static HTML at build time, so the `<head>` signals **and**
+> the page body are in the served HTML. Crawlers and AI answer engines that do not run JavaScript
+> still get the masthead, template list, and generator form; the client then hydrates for interactivity.
 
 **Reuse it in another repo**
 

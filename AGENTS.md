@@ -28,10 +28,19 @@ Requires Node.js (npm). From the repository root:
 ```bash
 npm install      # install dependencies
 npm run dev      # start the Vite dev server (HMR) at http://localhost:5173
-npm run build    # production build into /dist
+npm run build    # client build + SSR build + prerender into /dist
+npm run build:client  # client-only build (no prerender)
 npm run preview  # preview the production build locally
 npm run lint     # run ESLint
 ```
+
+The production build prerenders the app to static HTML: `vite build` emits the client
+bundle and `index.html` shell, `vite build --ssr src/entry-server.jsx --outDir dist-ssr`
+emits a self-contained server bundle, and `node scripts/prerender.mjs` injects the rendered
+markup into `<div id="root">` in `dist/index.html`. The client hydrates that markup via
+`hydrateRoot` (`src/main.jsx`). Because of this, the prerendered markup and the first client
+render must match: theme and the current date are resolved through client-only values
+(`useSyncExternalStore`) rather than being read during render.
 
 ## 3. Repository Structure
 

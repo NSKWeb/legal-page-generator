@@ -1,13 +1,19 @@
-import { StrictMode, Suspense, lazy } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from 'react'
+import { createRoot, hydrateRoot } from 'react-dom/client'
+import App from './App.jsx'
 import './index.css'
 
-const App = lazy(() => import('./App.jsx'))
-
-createRoot(document.getElementById('root')).render(
+const container = document.getElementById('root')
+const app = (
   <StrictMode>
-    <Suspense fallback={<div>Loading...</div>}>
-      <App />
-    </Suspense>
-  </StrictMode>,
+    <App />
+  </StrictMode>
 )
+
+// Production HTML is prerendered at build time, so hydrate it. The dev server
+// serves an empty shell, so mount from scratch there.
+if (container.hasChildNodes()) {
+  hydrateRoot(container, app)
+} else {
+  createRoot(container).render(app)
+}

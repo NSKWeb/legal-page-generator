@@ -1,6 +1,8 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useSyncExternalStore } from 'react'
 import { generateDocument } from './generator'
 import { TEMPLATES } from './templates'
+
+const noopSubscribe = () => () => {}
 
 /* ── tiny icon set ── */
 const icons = {
@@ -521,14 +523,31 @@ function ContactPage() {
    MAIN APP
    ════════════════════════════════════════════════ */
 export default function App() {
-  const [dark, setDark] = useState(() => {
-    try { return localStorage.getItem('lx-theme') === 'dark' } catch { return false }
-  })
+  // Client-only values (theme, current date) are resolved so the prerendered
+  // markup and the first client render match: the server snapshot is
+  // deterministic, then React re-renders once mounted. The saved theme is
+  // read from <html data-theme>, which the inline script in index.html sets
+  // before first paint.
+  const isClient = useSyncExternalStore(noopSubscribe, () => true, () => false)
+  const [dark, setDark] = useState(
+    () => typeof document !== 'undefined' &&
+          document.documentElement.getAttribute('data-theme') === 'dark',
+  )
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
-    try { localStorage.setItem('lx-theme', dark ? 'dark' : 'light') } catch {}
+    try {
+      localStorage.setItem('lx-theme', dark ? 'dark' : 'light')
+    } catch {
+      /* storage can be unavailable (private mode); theme still applies */
+    }
   }, [dark])
+
+  const today = isClient
+    ? new Date().toLocaleDateString('en-GB', {
+        year: 'numeric', month: 'long', day: 'numeric',
+      })
+    : ''
 
   const [page, setPage] = useState('generator') // 'generator' | 'about' | 'contact'
   const [activeTemplate, setActiveTemplate] = useState('privacy-policy')
@@ -565,10 +584,6 @@ export default function App() {
   }
 
   const handlePrint = () => window.print()
-
-  const today = new Date().toLocaleDateString('en-GB', {
-    year: 'numeric', month: 'long', day: 'numeric',
-  })
 
   const switchTemplate = (id) => {
     setActiveTemplate(id)
