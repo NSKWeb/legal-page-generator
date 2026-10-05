@@ -29,6 +29,7 @@
   <a href="#-project-structure">Structure</a> ·
   <a href="#-performance--bundle-sizes">Performance</a> ·
   <a href="#-tech-stack">Tech Stack</a> ·
+  <a href="#-seo--search-visibility">SEO</a> ·
   <a href="#-license">License</a>
 </p>
 
@@ -219,6 +220,51 @@ LexCraft is optimised for fast initial loads through code splitting, vendor chun
 | **Linting** | ESLint (flat config, react-hooks + react-refresh + react-compiler) |
 | **Deployment** | Vercel (`vercel.json`) |
 | **Fonts** | Google Fonts — Libre Baskerville, DM Serif Display, Courier Prime, Syne |
+
+---
+
+## 🔍 SEO & Search Visibility
+
+LexCraft implements the reusable **[SEO_PROMPT toolkit](https://github.com/NSKWeb/SEO_PROMPT)** —
+a stack-agnostic prompt plus an OpenHands `seo-audit` skill for making any web-facing repo
+crawlable, indexable, and well-ranked. The app is a static bundle, so all SEO signals live in
+the `index.html` shell and `public/` assets that ship with every deploy.
+
+<p align="center">
+  <img src="docs/assets/seo-foundation.svg" alt="LexCraft SEO foundation: technical foundation, on-page head tags, four JSON-LD schema types, and a client-rendering note" width="1240" />
+</p>
+
+**Technical foundation**
+
+- 🤖 **`robots.txt`** (`public/robots.txt`) — `Allow: /`, blocks build artifacts, and points to the sitemap
+- 🗺️ **`sitemap.xml`** (`public/sitemap.xml`) — canonical home URL with `lastmod`, `changefreq`, and `priority`
+- 🔗 **Canonical tag** (`<link rel="canonical">`) pinned to the production domain
+- 🛡️ `<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">` for rich previews
+- ⚡ **Performance hints** — `dns-prefetch` + `preconnect` for Google Fonts, plus a code-split, tree-shaken bundle (see [Performance](#-performance--bundle-sizes))
+- 📱 Mobile-first layout with a viewport meta tag
+
+**On-page SEO**
+
+- 📄 A keyword-front-loaded **`<title>`** and a click-worthy **meta description** in `index.html`
+- 📣 **Open Graph** tags (type, site name, title, description, URL, image + dimensions + alt, locale) for Facebook, LinkedIn, and WhatsApp
+- 🐦 **Twitter / X card** (`summary_large_image`) with title, description, and image
+- ⭐ Favicon, `apple-touch-icon`, and `theme-color`
+- 🧩 **JSON-LD structured data** covering four schema types:
+  - `WebApplication` — rich-result eligibility
+  - `FAQPage` — AEO targets for AI Overviews and “People Also Ask”
+  - `HowTo` — step-by-step featured snippets
+  - `BreadcrumbList` — breadcrumb rich results
+
+> **Note on rendering:** LexCraft is a client-side React app. The SEO signals above are all in
+> the static `index.html`, which crawlers read reliably; if the app grows more indexable
+> content, add prerendering/SSG (e.g. `vite-plugin-ssg`) so page bodies are server-rendered too.
+
+**Reuse it in another repo**
+
+```bash
+cp -r .agents/skills/seo-audit <target-repo>/.agents/skills/
+# then: "Run the seo-audit skill on this repo."
+```
 
 ---
 

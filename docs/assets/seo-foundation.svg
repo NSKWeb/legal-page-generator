@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 600" width="1240" height="600" role="img" aria-labelledby="t d">
+  <title id="t">LexCraft SEO foundation</title>
+  <desc id="d">Four blocks describing LexCraft&#x27;s SEO: the technical foundation, on-page head tags, four JSON-LD schema types, and a note that the client-rendered body relies on the static shell.</desc>
+  <rect width="1240" height="600" fill="#f7fafd"/>
+  <rect x="0" y="0" width="1240" height="8" fill="#1e78c2"/>
+  <text x="48" y="72" font-family="'Courier Prime', 'SFMono-Regular', Consolas, monospace" font-size="15" fill="#e85d2f" font-weight="700" letter-spacing="3">SEO &amp; AEO FOUNDATION</text>
+  <text x="46" y="122" font-family="'DM Serif Display', Georgia, serif" font-size="42" fill="#0a1628" font-weight="700">LexCraft — search visibility</text>
+  <text x="48" y="156" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="16.5" fill="#3a5272">Everything ships in the static index.html shell and public/ assets.</text>
+  <line x1="48" y1="180" x2="1192" y2="180" stroke="#b8dcf8" stroke-width="3"/>
+  <rect x="53.0" y="215" width="560.0" height="168" fill="#0a1628"/>
+  <rect x="48.0" y="210" width="560.0" height="168" fill="#ffffff" stroke="#0a1628" stroke-width="2.5"/>
+  <rect x="48.0" y="210" width="8" height="168" fill="#1e78c2"/>
+  <text x="78.0" y="250" font-family="'Courier Prime', 'SFMono-Regular', Consolas, monospace" font-size="15" fill="#1e78c2" font-weight="700" letter-spacing="1.2">TECHNICAL FOUNDATION</text>
+  <path d="M 78.0 278.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#1e78c2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="104.0" y="282" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">robots.txt — Allow: / + sitemap</text>
+  <path d="M 78.0 302.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#1e78c2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="104.0" y="306" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">sitemap.xml — canonical home URL</text>
+  <path d="M 78.0 326.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#1e78c2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="104.0" y="330" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">canonical tag → production domain</text>
+  <path d="M 78.0 350.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#1e78c2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="104.0" y="354" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">meta robots: index, follow, max-image-preview</text>
+  <path d="M 78.0 374.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#1e78c2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="104.0" y="378" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">dns-prefetch + preconnect for fonts</text>
+  <path d="M 78.0 398.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#1e78c2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="104.0" y="402" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">viewport meta · mobile-first layout</text>
+  <rect x="637.0" y="215" width="560.0" height="168" fill="#0a1628"/>
+  <rect x="632.0" y="210" width="560.0" height="168" fill="#ffffff" stroke="#0a1628" stroke-width="2.5"/>
+  <rect x="632.0" y="210" width="8" height="168" fill="#e85d2f"/>
+  <text x="662.0" y="250" font-family="'Courier Prime', 'SFMono-Regular', Consolas, monospace" font-size="15" fill="#e85d2f" font-weight="700" letter-spacing="1.2">ON-PAGE HEAD</text>
+  <path d="M 662.0 278.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#e85d2f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="688.0" y="282" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">keyword-first &lt;title&gt;</text>
+  <path d="M 662.0 302.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#e85d2f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="688.0" y="306" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">click-worthy meta description</text>
+  <path d="M 662.0 326.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#e85d2f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="688.0" y="330" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">Open Graph (type, title, url, image)</text>
+  <path d="M 662.0 350.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#e85d2f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="688.0" y="354" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">Twitter / X summary_large_image card</text>
+  <path d="M 662.0 374.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#e85d2f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="688.0" y="378" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">favicon + apple-touch-icon + theme-color</text>
+  <path d="M 662.0 398.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#e85d2f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="688.0" y="402" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">descriptive alt on infographics</text>
+  <rect x="53.0" y="407" width="560.0" height="168" fill="#0a1628"/>
+  <rect x="48.0" y="402" width="560.0" height="168" fill="#ffffff" stroke="#0a1628" stroke-width="2.5"/>
+  <rect x="48.0" y="402" width="8" height="168" fill="#c8941c"/>
+  <text x="78.0" y="442" font-family="'Courier Prime', 'SFMono-Regular', Consolas, monospace" font-size="15" fill="#c8941c" font-weight="700" letter-spacing="1.2">JSON-LD STRUCTURED DATA</text>
+  <path d="M 78.0 470.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#c8941c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="104.0" y="474" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">WebApplication — rich results</text>
+  <path d="M 78.0 494.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#c8941c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="104.0" y="498" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">FAQPage — AI Overviews &amp; PAA (AEO)</text>
+  <path d="M 78.0 518.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#c8941c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="104.0" y="522" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">HowTo — step-by-step snippet</text>
+  <path d="M 78.0 542.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#c8941c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="104.0" y="546" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">BreadcrumbList — breadcrumb rich result</text>
+  <rect x="637.0" y="407" width="560.0" height="168" fill="#0a1628"/>
+  <rect x="632.0" y="402" width="560.0" height="168" fill="#ffffff" stroke="#0a1628" stroke-width="2.5"/>
+  <rect x="632.0" y="402" width="8" height="168" fill="#7ba68a"/>
+  <text x="662.0" y="442" font-family="'Courier Prime', 'SFMono-Regular', Consolas, monospace" font-size="15" fill="#7ba68a" font-weight="700" letter-spacing="1.2">RENDERING NOTE</text>
+  <path d="M 662.0 470.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#7ba68a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="688.0" y="474" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">React SPA — body is client-rendered</text>
+  <path d="M 662.0 494.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#7ba68a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="688.0" y="498" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">all SEO signals live in the static shell</text>
+  <path d="M 662.0 518.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#7ba68a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="688.0" y="522" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">crawlers read them reliably today</text>
+  <path d="M 662.0 542.25 l 4.8 5.7 l 9.3 -12.9" fill="none" stroke="#7ba68a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="688.0" y="546" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#1c3250">scale up: add SSG/prerender for page bodies</text>
+  <text x="620.0" y="576" font-family="Syne, 'Helvetica Neue', Arial, sans-serif" font-size="14.5" fill="#3a5272" text-anchor="middle">Audit table reports every item as pass / fail / missing with file:line evidence.</text>
+</svg>
