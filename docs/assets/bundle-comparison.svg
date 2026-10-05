@@ -19,7 +19,7 @@
   </defs>
   <rect width="820" height="340" rx="18" fill="url(#bcBg)" stroke="#b8dcf8" stroke-width="2"/>
 
-  <text x="410" y="36" font-size="16" font-weight="800" fill="#0f4e8a" text-anchor="middle">Initial JS Payload — Before vs After</text>
+  <text x="410" y="36" font-size="16" font-weight="800" fill="#0f4e8a" text-anchor="middle">Production JS — one chunk vs cached split</text>
 
   <!-- Axis baseline -->
   <line x1="260" y1="270" x2="780" y2="270" stroke="#3a5272" stroke-width="2"/>
@@ -45,21 +45,21 @@
   <text x="365" y="292" font-size="12" font-weight="700" fill="#3a5272" text-anchor="middle">BEFORE</text>
   <text x="365" y="308" font-size="10" fill="#7dc0ef" text-anchor="middle">single chunk</text>
 
-  <!-- AFTER entry bar: 2.38 kB => ~1.4px (tiny) draw min visible -->
+  <!-- AFTER app bar: 59.18 kB => 59.18/250*150 = 35.5px, top y = 270-35.5 = 234.5 -->
   <g filter="url(#bcShadow)">
-    <rect x="480" y="266" width="90" height="4" rx="2" fill="url(#afterBar)"/>
+    <rect x="480" y="234.5" width="90" height="35.5" rx="4" fill="url(#afterBar)"/>
   </g>
-  <text x="525" y="256" font-size="12" font-weight="800" fill="#1e78c2" text-anchor="middle">2.38 kB</text>
-  <text x="525" y="292" font-size="12" font-weight="700" fill="#3a5272" text-anchor="middle">AFTER (entry)</text>
-  <text x="525" y="308" font-size="10" fill="#7dc0ef" text-anchor="middle">lazy + split</text>
+  <text x="525" y="226" font-size="12" font-weight="800" fill="#1e78c2" text-anchor="middle">59.18 kB</text>
+  <text x="525" y="292" font-size="12" font-weight="700" fill="#3a5272" text-anchor="middle">AFTER (app)</text>
+  <text x="525" y="308" font-size="10" fill="#7dc0ef" text-anchor="middle">split + cached</text>
 
   <!-- Reduction callout -->
   <g>
     <rect x="600" y="140" width="180" height="100" rx="14" fill="#0f4e8a"/>
-    <text x="690" y="172" font-size="28" font-weight="800" fill="#b8dcf8" text-anchor="middle">~97%</text>
-    <text x="690" y="194" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">reduction in</text>
-    <text x="690" y="210" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">initial JS payload</text>
-    <text x="690" y="228" font-size="9.5" fill="#7dc0ef" text-anchor="middle">248.57 kB → 2.38 kB</text>
+    <text x="690" y="172" font-size="28" font-weight="800" fill="#b8dcf8" text-anchor="middle">~76%</text>
+    <text x="690" y="194" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">smaller entry</text>
+    <text x="690" y="210" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">after code-splitting</text>
+    <text x="690" y="228" font-size="9.5" fill="#7dc0ef" text-anchor="middle">248.57 kB → 59.18 kB</text>
   </g>
 
   <!-- Legend -->
@@ -67,6 +67,6 @@
     <rect x="40" y="120" width="14" height="14" rx="3" fill="url(#beforeBar)"/>
     <text x="60" y="131">Before</text>
     <rect x="40" y="142" width="14" height="14" rx="3" fill="url(#afterBar)"/>
-    <text x="60" y="153">After (entry chunk)</text>
+    <text x="60" y="153">After (app chunk)</text>
   </g>
 </svg>

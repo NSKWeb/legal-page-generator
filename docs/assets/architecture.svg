@@ -68,6 +68,6 @@
     <rect x="160" y="230" width="540" height="80" rx="14" fill="#0f4e8a"/>
     <text x="430" y="258" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">🔒 Zero data leaves the browser</text>
     <text x="430" y="280" font-size="11" fill="#b8dcf8" text-anchor="middle">No server · No database · No account · No tracking</text>
-    <text x="430" y="298" font-size="10.5" fill="#7dc0ef" text-anchor="middle">All rendering &amp; generation happen locally in React</text>
+    <text x="430" y="298" font-size="10.5" fill="#7dc0ef" text-anchor="middle">Generation stays local · the page shell is prerendered at build time</text>
   </g>
 </svg>
